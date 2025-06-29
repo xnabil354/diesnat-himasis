@@ -552,10 +552,14 @@
 
         .sponsor-logo img {
             height: 35px; 
-            width: auto;  
-            max-width: 100%; 
+            width: auto; 
+            max-width: 100%;
             filter: grayscale(100%) opacity(0.6);
             transition: all 0.3s ease-in-out;
+        }
+
+        .sponsor-logo.main-sponsor img {
+            height: 70px; 
         }
 
         .sponsor-logo img:hover {
@@ -577,6 +581,19 @@
         }
 
         /* --- Responsive Styles --- */
+        @media screen and (max-width: 992px) {
+            .partner-column {
+                text-align: center;
+            }
+            .sponsor-logos {
+                justify-content: center;
+            }
+            .footer-title::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
         @media screen and (max-width: 768px) {
             .timeline:before {
                 left: 10px;
@@ -604,7 +621,6 @@
                 text-align: center;
             }
             .sponsor-logos {
-                justify-content: center;
                 gap: 2rem;
             }
         }
@@ -619,7 +635,7 @@
             }
             #tentang img {
                 margin-bottom: 30px;
-                max-width: 350px; 
+                max-width: 350px; /* Batasi lebar poster di mobile */
             }
             .about-text {
                 text-align: center;
@@ -627,7 +643,7 @@
             .about-text h2 {
                 font-size: 2rem;
             }
-            #galeri .col-6 { 
+            #galeri .col-6 { /* Target columns in gallery for small screens */
                  flex: 0 0 auto;
                  width: 50%;
             }
@@ -857,18 +873,18 @@
     <footer id="main-footer">
         <div class="container">
             <div class="row gy-5">
-                <div class="col-lg-4 col-md-12">
-                     <a class="footer-brand" href="#hero">DiesNat<span>Himasis</span></a>
-                     <p>Perayaan inovasi, kreativitas, dan kolaborasi terbesar oleh Himpunan Mahasiswa Sistem Informasi. Merajut masa depan digital bangsa bersama kami.</p>
+                <div class="col-lg-4 col-md-12 text-center text-lg-start">
+                     <a class="footer-brand d-inline-block" href="#hero">DiesNat<span>Himasis</span></a>
+                     <p>Perayaan inovasi, kreativitas, dan kolaborasi terbesar oleh Himpunan Mahasiswa Sistem Informasi.</p>
                      <div class="footer-social-icons mt-4">
                         <a href="https://www.instagram.com/himasis.poltekstmi?igsh=eWV2ZGIwbXo3b294" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.facebook.com/share/1ALjti5EsX/" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="https://youtube.com/@himasis?si=KgqAFCt6tLWudTd2" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                         <a href="https://x.com/himasis_stmi?t=K1Gn17jjkm8VtfHCLH53Qw&s=09" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://youtube.com/@himasis?si=KgqAFCt6tLWudTd2" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                         <a href="https://open.spotify.com/show/0lS1dBg7hpyo1wTVCiikxa?si=sa5QhNBcT26s8v15MKH7YQ" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
+                        <a href="https://www.facebook.com/share/1ALjti5EsX/" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-4 col-6">
+                <div class="col-lg-2 col-md-6 col-6">
                     <h5 class="footer-title">Explore</h5>
                     <ul class="list-unstyled footer-links">
                         <li><a href="#tentang">Tentang</a></li>
@@ -876,33 +892,39 @@
                         <li><a href="#jadwal">Jadwal</a></li>
                     </ul>
                 </div>
-                 <div class="col-lg-3 col-md-4 col-6">
-                    <h5 class="footer-title">Contact Us</h5>
+                 <div class="col-lg-2 col-md-6 col-6">
+                    <h5 class="footer-title">Narahubung</h5>
                     <ul class="list-unstyled footer-links">
                         <li><a href="https://wa.me/6282111964196" target="_blank">🤹🏻 Reno</a></li>
                         <li><a href="https://wa.me/6287814022005" target="_blank">🤹🏻‍♀️ Xena</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-3 col-md-4">
-                     <h5 class="footer-title">Didukung Oleh</h5>
-                     <p>Acara ini didukung penuh oleh para sponsor dan media partner kami.</p>
-                     <div class="sponsor-logos">
-                        <div class="sponsor-logo">
-                            <img src="1.jpg" class="w-20 h-20" alt="Logo Sponsor A">
+                <div class="col-lg-4 col-md-12 partner-column">
+                    <div>
+                        <h5 class="footer-title">Media Partner By :</h5>
+                        <div class="sponsor-logos">
+                           <div class="sponsor-logo">
+                               <img src="1.jpg" alt="Logo Media Partner 1">
+                           </div>
+                           <div class="sponsor-logo">
+                               <img src="2.jpg" alt="Logo Media Partner 2">
+                           </div>
                         </div>
-                        <div class="sponsor-logo">
-                            <img src="2.jpg" class="w-20 h-20" alt="Logo Sponsor B">
+                    </div>
+                    <div class="mt-4">
+                        <h5 class="footer-title">Sponsored By :</h5>
+                        <div class="sponsor-logos">
+                           <div class="sponsor-logo">
+                               <img src="3.jpg" alt="Logo Sponsor 1">
+                           </div>
+                           <div class="sponsor-logo">
+                               <img src="4.jpg" alt="Logo Sponsor 2">
+                           </div>
+                           <div class="sponsor-logo main-sponsor">
+                               <img src="5.jpg" alt="Logo Sponsor 3">
+                           </div>
                         </div>
-                        <div class="sponsor-logo">
-                            <img src="3.jpg" class="w-20 h-20" alt="Logo Sponsor C">
-                        </div>
-                        <div class="sponsor-logo">
-                            <img src="4.jpg" class="w-20 h-20" alt="Logo Sponsor D">
-                        </div>
-                        <div class="sponsor-logo">
-                            <img src="5.jpg" class="w-20 h-20" alt="Logo Sponsor D">
-                        </div>
-                     </div>
+                    </div>
                 </div>
             </div>
         </div>
