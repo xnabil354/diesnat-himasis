@@ -5,16 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dies Natalis Himasis ke-17 - SIRKUS</title>
 
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     
+    <!-- Google Fonts: Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
 
+    <!-- Animate On Scroll (AOS) Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <!-- Custom CSS -->
     <style>
         :root {
             --primary-color: #6a11cb;
@@ -40,13 +45,15 @@
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             transition: background-color 0.3s ease-in-out;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .navbar.scrolled {
-            background-color: rgba(13, 17, 23, 1);
+            background-color: var(--card-bg);
         }
         
         .navbar-brand {
+            font-family: 'Poppins', sans-serif;
             font-weight: 900;
             font-size: 1.8rem;
             color: var(--light-color) !important;
@@ -65,7 +72,7 @@
         .nav-link:hover, .nav-link.active {
             color: var(--light-color) !important;
         }
-
+        
         .nav-link::after {
             content: '';
             position: absolute;
@@ -81,7 +88,8 @@
             width: 80%;
         }
 
-        #home {
+        /* --- Hero Section --- */
+        #hero {
             position: relative;
             height: 100vh;
             display: flex;
@@ -90,29 +98,24 @@
             text-align: center;
             color: var(--light-color);
             overflow: hidden;
-            background-color: var(--dark-color);
+            background-color: var(--dark-color); /* Fallback background */
         }
-
+        
         #particles-js {
             position: absolute;
             width: 100%;
             height: 100%;
-            z-index: 0;
+            z-index: 1;
         }
-
-        .home-content {
+        
+        .hero-content {
             position: relative;
             z-index: 2;
             padding: 0 15px;
-            animation: fadeIn 2s ease-in-out;
         }
         
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-         .home-title {
+        .hero-title {
+            font-family: 'Poppins', sans-serif;
             font-size: clamp(2.5rem, 8vw, 5rem);
             font-weight: 900;
             text-transform: uppercase;
@@ -125,64 +128,71 @@
         
         @keyframes text-glow {
             from {
-                text-shadow: 0 0 10px #fff, 0 0 20px var(--secondary-color);
+                text-shadow: 0 0 10px #fff, 0 0 20px var(--secondary-color), 0 0 30px var(--secondary-color);
             }
             to {
-                text-shadow: 0 0 20px #fff, 0 0 30px var(--secondary-color);
+                text-shadow: 0 0 20px #fff, 0 0 30px var(--primary-color), 0 0 40px var(--primary-color);
             }
         }
-
-        .home-subtitle {
+        
+        .hero-subtitle {
             font-size: clamp(1rem, 4vw, 1.5rem);
             font-weight: 300;
-            margin-top: 1rem;
+            margin: 1.5rem 0;
             text-shadow: 0 0 10px rgba(255,255,255,0.3);
+            letter-spacing: normal;
         }
         
         #countdown {
-            margin-top: 2rem;
+            margin-top: 2.5rem;
             display: flex;
             justify-content: center;
-            gap: 1rem;
+            gap: 1.5rem;
         }
 
         .countdown-item {
             background: rgba(255, 255, 255, 0.05);
-            padding: 0.8rem;
+            padding: 1rem 1.5rem;
             border-radius: 10px;
             border: 1px solid rgba(255,255,255,0.1);
             backdrop-filter: blur(5px);
-            flex: 1;
-            max-width: 80px;
+            min-width: 100px;
         }
-
+        
         .countdown-item span {
-            font-size: 2rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
             font-weight: 700;
             display: block;
             color: var(--light-color);
         }
 
         .countdown-item p {
-            font-size: 0.7rem;
+            font-size: 0.9rem;
             margin: 0;
             text-transform: uppercase;
             color: var(--text-color);
+            font-weight: 400;
         }
-
-        /* --- Tentang Section --- */
-        #tentang .row {
-            align-items: center;
+        
+        /* --- Button --- */
+        .btn-custom {
+            background-image: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            color: var(--light-color);
+            border: none;
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.5);
+            background-size: 200% auto;
         }
-        #tentang img {
-            max-width: 100%;
-            height: auto;
-            object-fit: contain;
+        .btn-custom:hover {
+            background-position: right center;
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(106, 17, 203, 0.5);
+            color: var(--light-color);
         }
-        .about-text {
-            text-align: left;
-        }
-
 
         /* --- Section Styling --- */
         section {
@@ -196,11 +206,12 @@
         }
 
         .section-title h2 {
+            font-family: 'Poppins', sans-serif;
             font-weight: 700;
             font-size: 2.5rem;
-            color: var(--light-color);
             text-transform: uppercase;
             letter-spacing: 1px;
+            color: var(--light-color);
             position: relative;
             display: inline-block;
             padding-bottom: 10px;
@@ -223,7 +234,25 @@
             max-width: 600px;
             margin: 10px auto 0 auto;
         }
-        
+
+        /* --- Tentang Section --- */
+        #tentang .row {
+            align-items: center;
+        }
+        #tentang img {
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+        .about-text {
+            text-align: left;
+        }
+        .about-text h2 {
+           font-size: clamp(2rem, 5vw, 2.5rem);
+           font-weight: 700;
+           color: var(--light-color);
+        }
+
         @keyframes rotate-glow {
             from {
                 transform: translate(-50%, -50%) rotate(0deg);
@@ -296,6 +325,7 @@
             margin-bottom: 15px;
         }
         
+        /* --- Jadwal/Timeline --- */
         .timeline {
             position: relative;
             padding: 0;
@@ -368,24 +398,6 @@
             font-weight: 600;
         }
 
-        .btn-custom {
-            background-image: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            color: var(--light-color);
-            border: none;
-            padding: 12px 30px;
-            font-weight: 600;
-            border-radius: 50px;
-            transition: all 0.4s ease;
-            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.5);
-            background-size: 200% auto;
-        }
-        .btn-custom:hover {
-            background-position: right center;
-            transform: scale(1.05);
-            box-shadow: 0 8px 25px rgba(106, 17, 203, 0.5);
-            color: var(--light-color);
-        }
-
         /* --- Gallery --- */
         .gallery-item {
             position: relative;
@@ -453,6 +465,7 @@
             transform: scale(1.1);
         }
 
+        /* --- Footer --- */
         #main-footer {
             background-color: #070a0e;
             padding: 80px 0 0 0;
@@ -471,6 +484,7 @@
         }
 
         .footer-brand {
+            font-family: 'Poppins', sans-serif;
             font-weight: 900;
             font-size: 2rem;
             color: var(--light-color) !important;
@@ -546,31 +560,18 @@
         }
 
         .sponsor-logo img {
-            height: 50px; 
-            width: auto; 
-            max-width: 100%;
-            filter: grayscale(100%) opacity(0.6);
-            transition: all 0.3s ease-in-out;
-        }
-
-        .medpart-logo img {
-            height: 50px; 
-            width: auto; 
+            height: 35px;
+            width: auto;
             max-width: 100%;
             filter: grayscale(100%) opacity(0.6);
             transition: all 0.3s ease-in-out;
         }
 
         .sponsor-logo.main-sponsor img {
-            height: 90px; 
+            height: 50px;
         }
 
         .sponsor-logo img:hover {
-            filter: grayscale(0%) opacity(1);
-            transform: scale(1.1);
-        }
-
-        .medpart-logo img:hover {
             filter: grayscale(0%) opacity(1);
             transform: scale(1.1);
         }
@@ -588,12 +589,7 @@
             opacity: 0.7;
         }
 
-        @media (max-width: 991.98px) {
-            .navbar-nav {
-                text-align: center;
-            }
-        }
-        
+        /* --- Responsive Styles --- */
         @media screen and (max-width: 992px) {
             .partner-column {
                 text-align: center;
@@ -663,19 +659,8 @@
             .hero-title {
                 font-size: 2.5rem;
             }
-            #countdown {
-                gap: 0.5rem;
-            }
-            .countdown-item {
-                padding: 0.7rem;
-                min-width: 0;
-                flex: 1;
-            }
             .countdown-item span {
-                font-size: 1.8rem;
-            }
-            .countdown-item p {
-                font-size: 0.6rem;
+                font-size: 2.2rem;
             }
         }
         
@@ -686,14 +671,14 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNavbar">
         <div class="container">
-            <a class="navbar-brand" href="#home">DiesNat<span>Himasis</span></a>
+            <a class="navbar-brand" href="#hero">HIMASIS<span>17</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#home">Home</a>
+                        <a class="nav-link active" href="#hero">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#tentang">Tentang</a>
@@ -705,6 +690,9 @@
                         <a class="nav-link" href="#jadwal">Jadwal</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="#galeri">Galeri</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#daftar">Daftar</a>
                     </li>
                 </ul>
@@ -712,12 +700,12 @@
         </div>
     </nav>
 
-    <!-- home Section -->
-    <header id="home">
+    <!-- Hero Section -->
+    <header id="hero">
         <div id="particles-js"></div>
-        <div class="home-content" data-aos="fade-up">
-            <h1 class="home-title">Dies Natalis HIMASIS ke-17</h1>
-            <p class="home-subtitle">SIRKUS: Sistem Informasi, Ragam Kreasi, Unjuk Solidaritas</p>
+        <div class="hero-content" data-aos="fade-up">
+            <h1 class="hero-title">Dies Natalis HIMASIS ke-17</h1>
+            <p class="hero-subtitle">SIRKUS: Sistem Informasi, Ragam Kreasi, Unjuk Solidaritas</p>
             <div id="countdown">
                 <div class="countdown-item">
                     <span id="days">00</span>
@@ -746,7 +734,7 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-6 d-flex justify-content-center" data-aos="fade-right">
-                        <img src="./poster.jpeg" class="img-fluid rounded-3 shadow-lg" alt="Poster Acara Sirkus Himasis">
+                        <img src="https://placehold.co/450x640/161b22/ffffff?text=Poster+SIRKUS" class="img-fluid rounded-3 shadow-lg" alt="Poster Acara Sirkus Himasis">
                     </div>
                     <div class="col-lg-6 about-text" data-aos="fade-left" data-aos-delay="200">
                         <h2 class="display-5 fw-bold text-light mb-4">Selamat Datang di Arena SIRKUS!</h2>
@@ -840,7 +828,7 @@
             </div>
         </section>
         
-        <!-- Galeri Section
+        <!-- Galeri Section -->
         <section id="galeri">
             <div class="container">
                 <div class="section-title" data-aos="fade-up">
@@ -886,7 +874,7 @@
                     </div>
                 </div>
             </div>
-        </section> -->
+        </section>
 
         <!-- Pendaftaran Section -->
         <section id="daftar">
@@ -905,26 +893,26 @@
         <div class="container">
             <div class="row gy-5">
                 <div class="col-lg-4 col-md-12 text-center text-lg-start">
-                     <a class="footer-brand d-inline-block" href="#home">DiesNat<span>Himasis</span></a>
+                     <a class="footer-brand d-inline-block" href="#hero">HIMASIS<span>17</span></a>
                      <p>Perayaan inovasi, kreativitas, dan kolaborasi terbesar oleh Himpunan Mahasiswa Sistem Informasi.</p>
                      <div class="footer-social-icons mt-4">
-                        <a href="https://www.instagram.com/himasis.poltekstmi?igsh=eWV2ZGIwbXo3b294" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://x.com/himasis_stmi?t=K1Gn17jjkm8VtfHCLH53Qw&s=09" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="https://youtube.com/@himasis?si=KgqAFCt6tLWudTd2" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                        <a href="https://open.spotify.com/show/0lS1dBg7hpyo1wTVCiikxa?si=sa5QhNBcT26s8v15MKH7YQ" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
-                        <a href="https://www.facebook.com/share/1ALjti5EsX/" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-6 col-6">
-                    <h5 class="footer-title">Explore</h5>
+                    <h5 class="footer-title">Navigasi</h5>
                     <ul class="list-unstyled footer-links">
                         <li><a href="#tentang">Tentang</a></li>
                         <li><a href="#lomba">Acara</a></li>
                         <li><a href="#jadwal">Jadwal</a></li>
+                        <li><a href="#galeri">Galeri</a></li>
                     </ul>
                 </div>
                  <div class="col-lg-2 col-md-6 col-6">
-                    <h5 class="footer-title">Contact Us</h5>
+                    <h5 class="footer-title">Narahubung</h5>
                     <ul class="list-unstyled footer-links">
                         <li><a href="https://wa.me/6282111964196" target="_blank">🤹🏻 Reno</a></li>
                         <li><a href="https://wa.me/6287814022005" target="_blank">🤹🏻‍♀️ Xena</a></li>
@@ -932,27 +920,27 @@
                 </div>
                 <div class="col-lg-4 col-md-12 partner-column">
                     <div>
-                        <h5 class="footer-title">Media Partner By</h5>
+                        <h5 class="footer-title">Media Partner by:</h5>
                         <div class="sponsor-logos">
-                           <div class="medpart-logo">
-                               <img src="1.jpg" alt="Logo Media Partner 1">
+                           <div class="sponsor-logo">
+                               <img src="https://placehold.co/120x60/ffffff/000000?text=1.jpg" alt="Logo Media Partner 1">
                            </div>
                            <div class="sponsor-logo">
-                               <img src="2.jpg" alt="Logo Media Partner 2">
+                               <img src="https://placehold.co/120x60/ffffff/000000?text=2.jpeg" alt="Logo Media Partner 2">
                            </div>
                         </div>
                     </div>
                     <div class="mt-4">
-                        <h5 class="footer-title">Sponsored By</h5>
+                        <h5 class="footer-title">Sponsored By:</h5>
                         <div class="sponsor-logos">
                            <div class="sponsor-logo">
-                               <img src="3.jpg" alt="Logo Sponsor 1">
-                           </div>
-                           <div class="sponsor-logo main-sponsor">
-                               <img src="5.jpg" alt="Logo Sponsor 3">
+                               <img src="https://placehold.co/120x60/ffffff/000000?text=3.png" alt="Logo Sponsor 1">
                            </div>
                            <div class="sponsor-logo">
-                               <img src="4.jpg" alt="Logo Sponsor 2">
+                               <img src="https://placehold.co/120x60/ffffff/000000?text=4.jpg" alt="Logo Sponsor 2">
+                           </div>
+                           <div class="sponsor-logo main-sponsor">
+                               <img src="https://placehold.co/120x60/ffffff/000000?text=5.jpg" alt="Logo Sponsor Utama">
                            </div>
                         </div>
                     </div>
@@ -965,20 +953,25 @@
         </div>
     </footer>
 
+    <!-- particles.js library -->
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     
+    <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     
+    <!-- AOS JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-
+    <!-- Custom Javascript -->
     <script>
+        // Inisialisasi AOS (Animate on Scroll)
         AOS.init({
-            duration: 1000, 
-            once: true,     
-            offset: 50,     
+            duration: 1000,
+            once: true,
+            offset: 50,
         });
 
+        // Particles.js Configuration
         particlesJS("particles-js", {
             "particles": {
                 "number": {
@@ -1069,7 +1062,7 @@
             "retina_detect": true
         });
         
-
+        // Countdown Timer Logic
         const countdown = () => {
             const countDate = new Date('July 11, 2025 00:00:00').getTime();
             const now = new Date().getTime();
@@ -1102,6 +1095,7 @@
 
         setInterval(countdown, 1000);
 
+        // Navbar scroll effect
         const navbar = document.getElementById('mainNavbar');
         window.onscroll = () => {
             if (window.scrollY > 50) {
