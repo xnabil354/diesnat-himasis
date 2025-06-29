@@ -81,8 +81,8 @@
             width: 80%;
         }
 
-        /* --- Hero Section --- */
-        #hero {
+        /* --- home Section --- */
+        #home {
             position: relative;
             height: 100vh;
             display: flex;
@@ -94,7 +94,7 @@
             background: var(--dark-color) url('https://www.transparenttextures.com/patterns/cubes.png');
         }
 
-        #hero::before {
+        #home::before {
             content: '';
             position: absolute;
             top: 0; left: 0;
@@ -103,13 +103,13 @@
             z-index: 1;
         }
 
-        .hero-content {
+        .home-content {
             position: relative;
             z-index: 2;
             padding: 0 15px;
         }
 
-        .hero-title {
+        .home-title {
             font-size: clamp(2.5rem, 8vw, 5rem);
             font-weight: 900;
             text-transform: uppercase;
@@ -129,7 +129,7 @@
             }
         }
 
-        .hero-subtitle {
+        .home-subtitle {
             font-size: clamp(1rem, 4vw, 1.5rem);
             font-weight: 300;
             margin-top: 1rem;
@@ -660,14 +660,14 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNavbar">
         <div class="container">
-            <a class="navbar-brand" href="#hero">DiesNat<span>Himasis</span></a>
+            <a class="navbar-brand" href="#home">DiesNat<span>Himasis</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#hero">Home</a>
+                        <a class="nav-link active" href="#home">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#tentang">Tentang</a>
@@ -686,11 +686,11 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header id="hero">
-        <div class="hero-content" data-aos="fade-up">
-            <h1 class="hero-title">Dies Natalis HIMASIS ke-17</h1>
-            <p class="hero-subtitle">SIRKUS: Sistem Informasi, Ragam Kreasi, Unjuk Solidaritas</p>
+    <!-- home Section -->
+    <header id="home">
+        <div class="home-content" data-aos="fade-up">
+            <h1 class="home-title">Dies Natalis HIMASIS ke-17</h1>
+            <p class="home-subtitle">SIRKUS: Sistem Informasi, Ragam Kreasi, Unjuk Solidaritas</p>
             <div id="countdown">
                 <div class="countdown-item">
                     <span id="days">00</span>
@@ -878,7 +878,7 @@
         <div class="container">
             <div class="row gy-5">
                 <div class="col-lg-4 col-md-12 text-center text-lg-start">
-                     <a class="footer-brand d-inline-block" href="#hero">DiesNat<span>Himasis</span></a>
+                     <a class="footer-brand d-inline-block" href="#home">DiesNat<span>Himasis</span></a>
                      <p>Perayaan inovasi, kreativitas, dan kolaborasi terbesar oleh Himpunan Mahasiswa Sistem Informasi.</p>
                      <div class="footer-social-icons mt-4">
                         <a href="https://www.instagram.com/himasis.poltekstmi?igsh=eWV2ZGIwbXo3b294" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
