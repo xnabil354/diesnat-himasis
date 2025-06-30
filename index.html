@@ -453,6 +453,55 @@
             transform: scale(1.1);
         }
 
+        /* --- FAQ Section --- */
+        #faq {
+            background-color: var(--dark-color);
+        }
+        .faq-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        .faq-item:hover {
+            border-color: var(--primary-color);
+        }
+        .faq-question {
+            padding: 20px 25px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--light-color);
+            font-size: 1.1rem;
+        }
+        .faq-question i {
+            transition: transform 0.4s ease;
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+            padding: 0 25px;
+        }
+        .faq-answer p {
+            padding-bottom: 20px;
+            margin: 0;
+            line-height: 1.8;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 300px; 
+            padding-top: 0;
+        }
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+            color: var(--secondary-color);
+        }
+
+
         #main-footer {
             background-color: #070a0e;
             padding: 80px 0 0 0;
@@ -888,6 +937,67 @@
             </div>
         </section> -->
 
+        <!-- FAQ Section -->
+        <section id="faq">
+            <div class="container">
+                <div class="section-title" data-aos="fade-up">
+                    <h2>Frequently Asked Questions (FAQ)</h2>
+                    <p>Temukan jawaban untuk pertanyaan yang paling sering diajukan mengenai acara SIRKUS.</p>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="faq-container" data-aos="fade-up" data-aos-delay="200">
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    Siapa saja yang boleh mendaftar?
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Pendaftaran terbuka untuk seluruh Mahasiswa aktif SIIO. Untuk lomba Futsal dan Mobile Legends, Alumni Himasis juga diperbolehkan ikut serta.</p>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    Kapan batas akhir pendaftaran?
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Pendaftaran diperpanjang hingga <strong>30 Juni 2025</strong>. Pastikan kamu mendaftar sebelum tanggal tersebut melalui tautan yang tersedia.</p>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    Apakah ada biaya pendaftaran?
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Ya, untuk lomba E-Football sebesar <strong>30k/Peserta</strong>, Mobile Legends <strong>50k/Tim</strong>, dan Futsal dikenakan biaya pendaftaran sebesar <strong>80k/Tim</strong>. Untuk Cerdas Cermat dan Talkshow, pendaftaran <strong>GRATIS</strong>.</p>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    Bagaimana cara mendaftar?
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Anda bisa mendaftar dengan meng-klik tombol <strong>"CLAIM YOUR TICKET!"</strong> di halaman ini atau langsung mengunjungi tautan <a href="https://forms.gle/nJzoKstL4ZK9wDGh7" target="_blank">ini</a>.</p>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    Jika saya punya pertanyaan lebih lanjut, siapa yang bisa dihubungi?
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Tentu! Anda bisa menghubungi narahubung kami melalui WhatsApp: <a href="https://wa.me/6282111964196" target="_blank">Reno</a> atau <a href="https://wa.me/6287814022005" target="_blank">Xena</a>.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Pendaftaran Section -->
         <section id="daftar">
             <div class="container text-center" data-aos="fade-up">
@@ -1110,6 +1220,18 @@
                 navbar.classList.remove('scrolled');
             }
         };
+
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const currentlyActive = document.querySelector('.faq-item.active');
+                if (currentlyActive && currentlyActive !== item) {
+                    currentlyActive.classList.remove('active');
+                }
+                item.classList.toggle('active');
+            });
+        });
     </script>
 </body>
 </html>
